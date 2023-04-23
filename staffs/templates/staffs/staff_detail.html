@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h3 class="page-title">Staff Details</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">{{object}}</li>
+								<li class="breadcrumb-item active" aria-current="page">Details</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+		  <div class="row">
+			<div class="col-lg-12">
+				<div class="box">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-md-4 col-sm-6">
+								<div class="box box-body b-1 text-center no-shadow">
+								{% if object.passport %}
+								<img
+									src="{{ object.passport.url }}"
+									class="float-left rounded-circle mr-3" style="width: 120px; height: 120px;">
+								{% else %}
+								<img
+									src="{% static 'dist/img/avatar.png' %}"
+									class="float-left rounded-circle mr-3" style="width: 120px; height: 120px;">
+								{% endif %}
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="col-md-8 col-sm-6">
+								<h2 class="box-title mt-0">{{object}}</h2>
+                				{% for payment in payments %}
+								<h1 class="pro-price mb-0 mt-20">Balance: #{{payment.balance}}</h1>
+                				{% endfor %}
+								<hr>
+                				<p>{{object.others}}</p>
+
+								<hr>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<h4 class="box-title mt-40">General Info</h4>
+								<div class="table-responsive">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td width="390">Surname</td>
+												<td>{{ object.surname }}</td>
+											</tr>
+											<tr>
+												<td>Firstname</td>
+												<td>{{ object.firstname }}</td>
+											</tr>
+											<tr>
+												<td>Other Name</td>
+												<td>{{ object.other_name }}</td>
+											</tr>
+											<tr>
+												<td>Registration Number</td>
+												<td> {{ object.registration_number }}  </td>
+											</tr>
+											<tr>
+												<td>Gender</td>
+												<td> {{ object.get_gender_display }} </td>
+											</tr>
+                      						<tr>
+												<td>Date of Birth</td>
+												<td> {{ object.date_of_birth }} </td>
+											</tr>
+                     						 <tr>
+												<td>Parent/Guardiance Mobile Number</td>
+												<td> {{ object.parent_mobile_number}} </td>
+											</tr>
+                     						 <tr>
+												<td>Address</td>
+												<td> {{ object.address }} </td>
+											</tr>
+                    					    <tr>
+												<td>Status</td>
+												<td> {{ object.get_current_status_display }} </td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>				
+				</div>
+        <!-- <div class="gap-items">
+          <button class="btn btn-success"><i class="mdi mdi-shopping"></i> Buy Now!</button>
+          <button class="btn btn-primary"><i class="mdi mdi-cart-plus"></i> Add To Cart</button>
+          <button class="btn btn-info"><i class="mdi mdi-compare"></i> Compare</button>
+          <button class="btn btn-danger"><i class="mdi mdi-heart"></i> Wishlist</button>
+        </div> -->
+			</div>
+		</div>
+
+		</section>
+
+{% endblock content %}

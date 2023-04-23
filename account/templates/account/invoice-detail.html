@@ -1,0 +1,119 @@
+{% extends 'dbase.html' %}
+{% load widget_tweaks %}
+{% load humanize %}
+{% block content %}
+	<div class="row">
+		<div class="col-12">
+			<div class="bb-1 clearFix">
+				<div class="text-end pb-15">
+					<button class="btn btn-success" type="button"><span><a href="{% url 'invoice-update' object.id %}"><i class="fa fa-edit"></i> Edit</a></span></button>
+                    <button class="btn btn-success" type="button"> <span><a href="{% url 'invoice-delete' object.id %}"><i class="fa fa-trash-o"></i> Delete</a></span> </button>
+					<button id="print2" class="btn btn-warning" type="button"> <span><a href="#"><i class="fa fa-print"></i> Print</a></span> </button>
+				</div>	
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="page-header">
+				<h2 class="d-inline"><span class="fs-30">{{ object }}</span></h2>
+				<div class="pull-right text-end">
+					<h3>22 April 2018</h3>
+				</div>	
+			</div>
+		</div>
+		  
+		<div class="row invoice-info">
+			<div class="col-md-6 invoice-col">	
+			  <address>
+				<strong class="text-blue fs-24">{{ invoice.session }}</strong><br>
+				<strong class="d-inline">{{ invoice.term }}</strong><br>
+				<strong>{{ invoice.class_for }} </strong> 
+                <strong>Status: {{ invoice.get_status_display }} </strong> 
+			  </address>
+			</div>
+			<!-- /.col -->
+			<div class="col-md-6 invoice-col text-end">
+			  <address>
+				<strong class="text-blue fs-24">{{ invoice.balance | intcomma }}</strong><br>
+			  </address>
+			</div>
+		    <div class="row">
+				<div class="col-12 table-responsive">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+							<th>S/N</th>
+							<th>Description</th>
+							<th class="text-end">Amount</th>
+							</tr>
+							{% for item in items %}
+							<tr>                   
+							<td>{{ forloop.counter }}</td>
+							<td>{{ item.description }}</td>
+							<td class="text-end">{{ item.amount }}</td>					
+							</tr>
+							{% endfor %}
+						</tbody>
+						<tfoot>
+							<tr>
+							<td></td>
+							<td>Total Amount this term</td> 
+							<td>{{ invoice.amount_payable | intcomma}}</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>Balance from previous term</td>
+							<td>{{ invoice.balance_from_previous_term | intcomma }}</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>Total Amount Payable</td>
+							<td>{{ invoice.total_amount_payable | intcomma}}</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>Total Amount Paid</td>
+							<td>{{ invoice.total_amount_paid | intcomma}}</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>Balance</td>
+							<td>{{ invoice.balance | intcomma}}</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+
+			<!-- /.col -->
+		  </div>
+		  <div class="row">
+			<hr>
+
+			<h5>Payment History</h5>
+			<div class="row">
+			<div class="col-12 table-responsive">
+			<table class="table table-bordered">
+				<thead class="thead-light">
+					<tr>
+						<th>S/N</th>
+						<th class="text-end">Amount Paid</th>
+						<th class="text-end">Date Paid</th>
+						<th class="text-end">Comment Paid</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for receipt in receipts %}
+					<tr>
+						<td class="text-end">{{ forloop.counter }}</td>
+						<td class="text-end">{{ receipt.amount_paid}}</td>
+						<td class="text-end">{{ receipt.date_paid}}</td>
+						<td class="text-end">{{ receipt.comment}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+			
+		</div>
+	</div>
+{% endblock content %}

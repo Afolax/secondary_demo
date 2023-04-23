@@ -1,0 +1,63 @@
+{% extends 'page.html' %}
+{% block content %}
+
+
+<section>
+    <div class="container com-sp pad-bot-70 pg-inn">
+        <div class="row">
+            <div class="cor">                
+                <div class="col-md-3">
+                    <div class="cor-side-com">
+                        <div class="">
+                            <div class="de-left-tit">
+                                <h4>Our Mission</h4>
+                            </div>
+                        </div>
+                        {% for m in mis %}
+                        <div class="pg-eve-desc">
+                         <p>{{m.content | linebreaksbr}}</p>   
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cor-mid-img">
+                        <img src="images/course.jpg" alt="">
+                    </div>
+                    <div class="cor-con-mid">
+                        <div class="cor-p6">
+                            <h3>{{article.title}}</h3>
+                            <div class="cor-p6-revi">
+                                <div class="cor-p6-revi-left">
+                                    <img src="images/4.jpg" alt="">
+                                </div>
+                                <div class="cor-p6-revi-right">
+                                    <h4>{{article.host}}</h4>
+                                    <span>Date: {{article.date}}</span>
+                                    <p>{{article.content | linebreaksbr}}</p>
+                                    <span>category: {{article.type}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="cor-side-com">
+                        <div class="">
+                            <div class="de-left-tit">
+                                <h4>Our Vision</h4>
+                            </div>
+                        </div>
+                        {% for v in vis %}
+                        <div class="pg-eve-desc ">
+                         <p>{{v.content | linebreaksbr}}</p>   
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-12">
+    <div class="box">
+        <div class="box-header with-border">						
+            <h4 class="box-title">STAFFS</h4>
+            <h6 class="box-subtitle">List of staffs</h6>
+        </div>
+        <div class="box-body p-15">						
+            <div class="table-responsive">
+                <table id="tickets" class="table mt-0 table-hover no-wrap" data-page-size="10">
+                    <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Fullname</th>
+                            <th>Gender</th>
+                            <th>Mobile Phone Number</th>
+                            <th>Status</th>
+                            <th>View</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for staff in object_list %}
+                            <tr class='clickable-row' data-href="{% url 'staff-detail' staff.id %}">
+                            <td>{{ forloop.counter}}</td>
+                            <td>{{ staff.surname}} {{staff.firstname }} {{staff.other_name }}</td>
+                            <td>{{ staff.get_gender_display}}</td>
+                            <td>{{ staff.parent_mobile_number}}</td>
+                            <td>{{ staff.get_current_status_display}}</td>
+                            <td><a href="{% url 'staff-detail' staff.id %}"><i
+                                class="fa fa-eye-slash"></i></a></td>
+                            <td><a href="{% url 'staff-update' staff.id %}"><i
+                                class="fa fa-edit"></i></a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

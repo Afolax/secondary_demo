@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">users</h3>
+            <p>This gives you the access to all members that can login to their portal</p>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+              <div class="table-responsive">
+                <table id="example5" class="table table-bordered table-striped" style="width:50%">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Fisrtname</th>
+                            <th>Surname</th>
+                            <th>Middle Name</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                          <td>{{ user }}</td>
+                          <td>{{user.first_name}}</td>
+                          <td>{{user.last_name}}</td>
+                          <td>{{user.other_name}}</td>
+                          <td><a
+                              href="{% url 'term-delete' user.id %}"><i
+                                class="fa fa-trash-alt"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+          </div>
+          
+        </div>    
+    </div>
+  </div>
+</section>
+{% endblock content %}

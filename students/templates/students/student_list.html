@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-12">
+    <div class="box">
+        <div class="box-header with-border">
+            {% if page == 'students' %}						
+            <h4 class="box-title">{{session}} / {{term}}</h4>
+            <h6 class="box-subtitle">List of all Students</h6>
+            {% else %}
+            <h4 class="box-title">{{session}} / {{term}}</h4>
+            <h6 class="box-subtitle">List of {{current_class}} Students</h6>
+            {% endif %}
+        </div>
+        <div class="box-body p-15">						
+            <div class="table-responsive">
+                <table id="tickets" class="table mt-0 table-hover no-wrap" data-page-size="10">
+                    <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Fullname</th>
+                            <th>Registration Number</th>
+                            <th>Current Class</th>
+                            <th>Gender</th>
+                            <th>Mobile Phone Number</th>
+                            <th>Status</th>
+                            <th>View</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td><a href="{% url 'student-detail' student.id %}">{{ forloop.counter}}</a></td>
+                            <td>{{ student.surname}} {{student.firstname }} {{student.other_name }}</td>
+                            <td>{{ student.registration_number}}</td>
+                            <td>{{ student.current_class}}</td>
+                            <td>{{ student.get_gender_display}}</td>
+                            <td>{{ student.parent_mobile_number}}</td>
+                            <td>{{ student.get_current_status_display}}</td>
+                            <td><a href="{% url 'student-detail' student.id %}"><i
+                                class="fa fa-eye-slash"></i></a></td>
+                            <td><a href="{% url 'student-update' student.id %}"><i
+                                class="fa fa-edit"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

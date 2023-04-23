@@ -1,0 +1,61 @@
+{% extends 'dbase.html' %}
+
+{% block content %}
+
+<div class="box-inn-sp">
+    {% if result %}
+    {% for key, result in results.items %}
+    <div class="inn-title">
+        <h4>{{result.student}}</h4>
+        <p>All about students like name, student id, phone, email, country, city and more</p>
+    </div>
+    <div class="tab-inn">
+        <div class="table-responsive table-desi">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Subject</th>
+                        <th>First CA</th>
+                        <th>Second CA</th>
+                        <th>Exam Score</th>
+                        <th>Total Score</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject in result.subjects %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ subject.subject }}</td>
+                      <td>{{ subject.first_CA }}</td>
+                      <td>{{ subject.second_CA }}</td>
+                      <td>{{ subject.exam_score }}</td>
+                      <td>{{ subject.total_score }}</td>
+                      <td>{{ subject.grade }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                       <th colspan="2"></th>
+                       <th>{{ result.first_CA }}</th>
+                       <th>{{ result.second_CA }}</th>
+                       <th>{{ result.exam_total }}</th>
+                       <th>{{ result.total_total }}</th>
+                       <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}    
+    <div class="inn-title">
+        <h4>{{result.student}}</h4>
+        <p>No result available for this specified session and term. Please check back later</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="content">
+    <div class="row">
+
+        <div class="col-xl-4 col-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Student Messages</h4>
+                </div>
+                <div class="box-body p-0">
+                <div class="media-list media-list-hover">
+                    {% if std_msg %}
+                    {% for object in std_msg %}
+                    <a class="media media-single" href="{% url 'stu-msg-detail' object.id %}">
+                    <span class="avatar avatar-lg bg-primary-light rounded"><i class="fa fa-user"></i></span>
+                    <div class="media-body fw-500">
+                        <p class="fs-16">{{object.message}}</p>
+                        <span class="text-fade">{{object.date}}</span>
+                    </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+
+                    <a class="media media-single" href="#">
+                    <span class="avatar avatar-lg bg-success-light rounded"><i class="fa fa-usd"></i></span>
+                    <div class="media-body fw-500">
+                        <p class="fs-16">Pellentesque blandit odio id felis semper, imperdiet sagittis purus tincidunt.</p>
+                        <span class="text-fade">23 hours ago</span>
+                    </div>
+                    </a>
+
+                    <a class="media media-single" href="#">
+                    <span class="avatar avatar-lg bg-warning-light rounded"><i class="fa fa-star"></i></span>
+                    <div class="media-body fw-500">
+                        <p class="fs-16">Aenean tincidunt tortor sit amet erat rutrum, vel condimentum ipsum gravida.</p>
+                        <span class="text-fade">Yesterday</span>
+                    </div>
+                    </a>
+
+                    <a class="media media-single" href="#">
+                    <span class="avatar avatar-lg bg-info-light rounded"><i class="fa fa-user"></i></span>
+                    <div class="media-body fw-500">
+                        <p class="fs-16">Vivamus condimentum erat non turpis placerat, at volutpat metus commodo.</p>
+                        <span class="text-fade">55 min ago</span>
+                    </div>
+                    </a>
+                    {% endif %}
+
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Staff Messages</h4>
+                </div>
+                <div class="box-body p-0">
+                    <div class="media-list media-list-hover">
+                        {% if stf_msg %}
+                        {% for object in stf_msg %}
+                        <a class="media media-single" href="{% url 'stf-msg-detail' object.id %}">
+                        <span class="avatar avatar-lg bg-primary-light rounded"><i class="fa fa-user"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">{{object.message}}</p>
+                            <span class="text-fade">{{object.date}}</span>
+                        </div>
+                        </a>
+                        {% endfor %}
+                        {% else %}
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-success-light rounded"><i class="fa fa-usd"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Pellentesque blandit odio id felis semper, imperdiet sagittis purus tincidunt.</p>
+                            <span class="text-fade">23 hours ago</span>
+                        </div>
+                        </a>
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-warning-light rounded"><i class="fa fa-star"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Aenean tincidunt tortor sit amet erat rutrum, vel condimentum ipsum gravida.</p>
+                            <span class="text-fade">Yesterday</span>
+                        </div>
+                        </a>
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-info-light rounded"><i class="fa fa-user"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Vivamus condimentum erat non turpis placerat, at volutpat metus commodo.</p>
+                            <span class="text-fade">55 min ago</span>
+                        </div>
+                        </a>
+                        {% endif %}
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Public messages</h4>
+                </div>
+                <div class="box-body p-0">
+                    <div class="media-list media-list-hover">
+                        {% if pub_msg %}
+                        {% for object in pub_msg %}
+                        <a class="media media-single" href="{% url 'pub-msg-detail' object.id %}">
+                        <span class="avatar avatar-lg bg-primary-light rounded"><i class="fa fa-user"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">{{object.message|linebreaksbr}}</p>
+                            <span class="text-fade">{{object.date}}</span>
+                        </div>
+                        </a>
+                        {% endfor %}
+                        {% else %}
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-success-light rounded"><i class="fa fa-usd"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Pellentesque blandit odio id felis semper, imperdiet sagittis purus tincidunt.</p>
+                            <span class="text-fade">23 hours ago</span>
+                        </div>
+                        </a>
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-warning-light rounded"><i class="fa fa-star"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Aenean tincidunt tortor sit amet erat rutrum, vel condimentum ipsum gravida.</p>
+                            <span class="text-fade">Yesterday</span>
+                        </div>
+                        </a>
+    
+                        <a class="media media-single" href="#">
+                        <span class="avatar avatar-lg bg-info-light rounded"><i class="fa fa-user"></i></span>
+                        <div class="media-body fw-500">
+                            <p class="fs-16">Vivamus condimentum erat non turpis placerat, at volutpat metus commodo.</p>
+                            <span class="text-fade">55 min ago</span>
+                        </div>
+                        </a>
+                        {% endif %}
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+{% endblock content %}

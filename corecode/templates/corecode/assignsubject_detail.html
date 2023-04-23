@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load humanize %}
+{% block content %}
+	<div class="row">
+		<div class="col-12">
+			<div class="bb-1 clearFix">
+				<div class="text-end pb-15">
+					<button class="btn btn-success" type="button"><span><a href="{% url 'assigned-update' object.id %}"><i class="fa fa-edit"></i> Edit</a></span></button>
+                    <button class="btn btn-success" type="button"> <span><a href="{% url 'assigned-delete' object.id %}"><i class="fa fa-trash-o"></i> Delete</a></span> </button>
+					<button id="print2" class="btn btn-warning" type="button"> <span><a href="#"><i class="fa fa-print"></i> Print</a></span> </button>
+				</div>	
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="page-header">
+				<h2 class="d-inline"><span class="fs-30">{{ object }}</span></h2>
+				<div class="pull-right text-end">
+					<h3>Class:{{object.class_name}}</h3>
+				</div>	
+			</div>
+		</div>  
+		<div class="row invoice-info">
+		    <div class="row">
+				<div class="col-12 table-responsive"> 
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+							<th>S/N</th>
+							<th>Subjects</th>
+							</tr>
+							{% for item in items %}
+							<tr>                   
+							<td style="width: 10%;">{{ forloop.counter }}</td>
+							<td style="width: 20%;">{{ item.subject_name }}</td>				
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		  </div>
+		</div>
+	</div>
+{% endblock content %}

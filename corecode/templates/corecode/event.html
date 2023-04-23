@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Title: {{data.title}}</h4>
+                </div>
+                <div class="box-body">
+                    <h4>Content:</h4>
+                  <p>{{data.description|linebreaksbr}}</p>
+                </div>
+                <div class="box-footer">
+                 <p>Date: {{data.date}}</p>
+                 <hr>
+                 {% if data.time_from %}
+                 <p>Time Frame: {{data.time_from}} - {{data.time_to}}</p>
+                 {% endif %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+

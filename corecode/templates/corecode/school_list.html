@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="content">
+   
+    
+  <div class="row">
+    {% if object_list %}
+    {% for object in object_list %}
+      <div class="col-md-6">
+        <div class="box overflow-hidden">
+        {% if object.image %}
+          <figure class="img-hov-zoomin mb-0">
+            <img src="{{object.image.url}}" alt="...">
+          </figure>
+        {% else %}
+          <figure class="img-hov-zoomin mb-0">
+            <img src="{% static 'dist/img/avatar.png' %}" alt="...">
+          </figure>
+        {% endif %}
+          <div class="box-body">
+            <p>{{object.content|linebreaksbr}}</p>
+            <div class="flexbox align-items-center mt-3">
+              <div class="gap-items-4">
+                Current : {% if object.current == True %}
+                  Current <i class="fa fa-check"></i>
+                {% endif %}
+              </div>
+              <div class="gap-items-4">
+                <a class="text-muted" href="{% url 'school-delete' object.id %}">
+                  <i class="fa fa-trash"></i>Delete
+                </a>
+                <a class="text-muted" href="{% url 'school-update' object.id %}">
+                  <i class="fa fa-edit"></i>Update
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {% else %}
+    <div class="col-md-6">
+        <div class="box overflow-hidden">
+          <figure class="img-hov-zoomin mb-0">
+            <img src="{% static 'dist/img/avatar.png' %}" alt="...">
+          </figure>
+          <div class="box-body">
+            <p>Vestibulum volutpat, ante sit amet dignissim imperdiet, diam diam sodales orci, in gravida lorem erat eu diam. Nulla lorem nunc, ultrices ac dignissim et, dignissim nec lacus. Praesent euismod lorem eget justo lacinia rutrum sed at mi.</p>
+            <div class="flexbox align-items-center mt-3">
+              <div class="gap-items-4">
+                <i class="fa fa-check"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+  </div>
+
+</section>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<section class="content">
+    <div class="row">
+      <div class="col-xl-10 col-lg-9 col-12">
+          <div class="box">
+              <div class="box-header with-border">						
+                  <h4 class="box-title">Subject Page </h4>
+              </div>
+              <div class="box-body">						
+                  <div class="table-responsive">
+
+                      <table id="example" class="table table-lg invoice-archive">
+                          <thead>
+                              <tr>
+                                <th>S/N</th>
+                                <th>Teachers</th>
+                                <th>Class</th>
+                                <th class="text-center">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            {% for object in object_list %}
+                              <tr>
+                                  <td>{{ forloop.counter}}</td>
+                                  <td>{{ object}}</td>
+                                  <td>{{ object.class_name}}</td>
+                                  <td class="text-center">
+                                      <div class="list-icons d-inline-flex">
+                                          <a href="{% url 'assigned-detail' object.id %}" class="list-icons-item me-10"><i class="fa fa-eye-slash"></i></a>
+                                      </div>
+                                  </td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                      </table>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

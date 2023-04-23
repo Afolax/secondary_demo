@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
+<form  method="POST">
+  {% csrf_token %}
+    <div class="row">			  
+        <div class="col-lg-6 col-12">
+          <div class="box-header with-border">
+            <h4 class="box-title">SELECT CLASS</h4> 
+          </div>
+          <div class="box-body">
+            {% for field in form %}
+            <div class="form-group">
+                <label class="form-label" for="{{ field.auto_id }}">
+                    {{ field.label }}
+                    {% for error in field.errors %}
+                        <small id="{{ field.auto_id }}" class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </label>
+                <div>
+                    {{ field | add_class:"form-control"}}
+                    {% if field.help_text %}
+                      <small>{{ field.help_text|safe }}</small>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}              
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="box">
+            <div class="box-header with-border">   
+              <h4 class="box-title">ADD SUBJECTS</h4>
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6">
+                  {{ items.management_form }}
+                  <div class="row">
+                    <div class="col-md-6"><strong>Subject</strong></div>
+                  </div>
+                  {% for item in items %}
+                  <div class="row  items-group">
+                    {{ item.id}}
+                    <div class="col">{{ item.subject | add_class:"form-control"}}</div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="box-footer text-end">
+              <button type="submit" class="btn btn-primary">
+                <i class="ti-save-alt"></i> Save
+              </button>
+            </div>  
+          </div>		
+        </div>
+    </div>
+</form>
+
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'dist/js/jquery.formset.js' %}"></script>
+
+<script>
+  $(".items-group").formset(
+    {
+      prefix: '{{ items.prefix }}',
+      deleteText: "<div class='btn btn-danger btn-sm me-10'><i class='fa fa-trash'></i>Remove</div>",
+      addText: "<div class='btn btn-success'><i class='fa fa-plus'></i>Add more</div>"
+    }
+  )
+</script>
+{% endblock content %}

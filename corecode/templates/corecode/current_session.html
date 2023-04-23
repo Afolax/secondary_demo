@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section class="content">
+  <div class="row">
+    <div class="col-lg-6 col-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h4 class="box-title">Set Current Session and Term</h4>
+          </div>
+          <!-- /.box-header -->
+          <form class="form" method ="POST">
+            {% csrf_token %}
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                        {% for field in form %}
+                        <div class="form-group">
+                            <div class="form-label">{{ field.label_tag}}</div>
+                              {{ field | add_class:"form-control"}}
+                              <span class="small">{{ field.help_text |safe}}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="ti-save-alt"></i> Submit
+                  </button>
+              </div>  
+          </form>
+        </div>
+        <!-- /.box -->			
+    </div>
+  </div>
+</section>
+{% endblock content %} 

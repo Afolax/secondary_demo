@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load humanize %}
+{% block content %}
+	<div class="row">
+		<div class="col-12">
+			<div class="page-header">
+				<h2 class="d-inline"><span class="fs-30">{{ object }}</span></h2>
+				<div class="pull-right text-end">
+					<h3>22 April 2018</h3>
+				</div>	
+			</div>
+		</div>  
+		<div class="row invoice-info">
+		    <div class="row">
+				<div class="col-12 table-responsive"> 
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+							<th>S/N</th>
+							<th>Subjects</th>
+							<th class="text-end">Amount</th>
+							</tr>
+							{% for item in items %}
+							<tr>                   
+							<td>{{ forloop.counter }}</td>
+							<td>{{ item.subject }}</td>				
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		  </div>
+		</div>
+	</div>
+{% endblock content %}

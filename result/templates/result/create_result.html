@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="col-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Select Student(s)</h3>
+      </div>
+       <!-- /.box-header -->
+      <form class="form" method="POST">
+        {% csrf_token %}
+        <div class="box-body">
+          <div class="table-responsive">
+              <table id="studenttable" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                          <input type="checkbox" id="selecter">
+                        </th>
+                        <th>Name</th>
+                        <th>Current Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>
+                      <input type="checkbox" id="{{ student.id }}" name="students" value="{{ student.id}}">  
+                      <label for="{{student.id}}"></label>
+                    </td>
+                    <td>{{student}} </td>
+                    <td>{{student.current_class}}</td>
+                </tr>
+                {% endfor %}                   
+                </tbody>
+              </table>
+          </div>
+            <div class="box-footer text-end">
+              <button type="submit" class="btn btn-success">
+                <i class="ti-save-alt"></i> Proceed
+              </button>
+            </div>
+        </div> 
+      </form>
+    </div>   
+  </div> 
+{% endblock content %}

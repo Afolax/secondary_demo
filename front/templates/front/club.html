@@ -1,0 +1,64 @@
+{% extends 'page.html' %}
+{% block content %}
+
+<section>
+    <div class="container com-sp pad-bot-70 pg-inn">
+        <div class="row">
+            <div class="cor">
+                <div class="col-md-3">
+                    <div class="cor-side-com">
+                        <div class="">
+                            <div class="de-left-tit">
+                                <h4>The School Mission</h4>
+                            </div>
+                        </div>
+                        {% for m in mis %}
+                        <div class="pg-eve-desc">
+                         <p>{{m.content | linebreaksbr}}</p>   
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cor-mid-img">
+                        <img src="images/course.jpg" alt="">
+                    </div>
+                    <div class="cor-con-mid">
+                        <div class="cor-p1">
+                            <h2>{{club.title}}</h2>
+                            <h3>Founder: {{club.founder}}</h3>
+                            <span>Chairman: {{club.chairman}}</span>
+                            <!-- <div class="share-btn">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <div class="cor-p4">
+                            <h3>Club Details:</h3>
+                            <p>{{club.description | linebreaksbr}}</p>
+                            <p>The club '{{club.title}}' was founded on {{club.founder_date}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="cor-side-com">
+                        <div class="">
+                            <div class="de-left-tit">
+                                <h4>The School Vision</h4>
+                            </div>
+                        </div>
+                        {% for v in vis %}
+                        <div class="pg-eve-desc ">
+                         <p>{{v.content | linebreaksbr}}</p>   
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

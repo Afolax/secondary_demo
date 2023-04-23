@@ -1,0 +1,30 @@
+{% extends 'page.html' %}
+
+{% block content %}
+
+<div class="cor about-sp">
+    <div class="ed-about-tit">
+        <div>
+            <div class="ho-event pg-eve-main pg-blog">
+                <ul>
+                    <li>
+                        <div class="pg-eve-desc pg-blog-desc">
+                            <h4>{{title}}</h4>
+                            <div class="share-btn blog-share-btn">
+                                <ul>
+                                    <li><a href="{% url 'home' %}"><i class="fa fa-back"></i>Home</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <img src="images/blog/5.jpg" alt="">
+                            <p>{{obj.content | linebreaksbr}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div> 
+</div>
+
+{% endblock content %}

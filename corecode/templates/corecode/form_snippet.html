@@ -1,0 +1,22 @@
+{% load widget_tweaks %}
+
+{% for field in form %}
+
+<div class="box-body">
+    <div class="form-group">
+        <label class="form-label" for="{{ field.auto_id }}">
+            {{ field.label }}
+            {% for error in field.errors %}
+                <small id="{{ field.auto_id }}" class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </label>
+        <div>
+            {{ field | add_class:"form-control"}}
+            {% if field.help_text %}
+              <small>{{ field.help_text|safe }}</small>
+            {% endif %}
+        </div>
+    </div>              
+</div>
+
+{% endfor %} 

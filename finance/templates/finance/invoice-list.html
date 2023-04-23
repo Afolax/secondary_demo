@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<section class="content">
+    <div class="row">
+      <div class="col-xl-10 col-lg-9 col-12">
+          <div class="box">
+              <div class="box-header with-border">						
+                  <h4 class="box-title">Invoice List</h4>
+                  <h6 class="box-subtitle">Export Invoice List to Copy, CSV, Excel, PDF & Print</h6>
+              </div>
+              <div class="box-body">						
+                  <div class="table-responsive">
+
+                      <table id="example" class="table table-lg invoice-archive">
+                          <thead>
+                              <tr>
+                                <th>S/N</th>
+                                <th>invoice</th>
+                                <th>Session-term</th>
+                                <th>Total Payable</th>
+                                <th>Total Paid</th>
+                                <th>Balance</th>
+                                <th>Receipt</th>
+                                <th class="text-center">Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            {% for invoice in invoices %}
+                              <tr>
+                                  <td>{{ forloop.counter}}</td>
+                                  <td>{{ invoice}}</td>
+                                  <td>{{ invoice.session}}-{{ invoice.term}}</td>
+                                  <td>{{ invoice.total_amount_payable | intcomma }}</td>
+                                  <td>{{ invoice.total_amount_paid | intcomma }}</td>
+                                  <td>{{ invoice.balance | intcomma }}</td>
+                                  <td><a class="btn btn-success btn-sm"
+                                    href="{% url 'receipt-create' %}?invoice={{ invoice.id }}">Add new
+                                    receipt</a></td>
+                                  <td class="text-center">
+                                      <div class="list-icons d-inline-flex">
+                                          <a href="{% url 'invoice-detail' invoice.id %}" class="list-icons-item me-10"><i class="fa fa-eye-slash"></i></a>
+                                          <div class="list-icons-item dropdown">
+                                              <a href="#" class="list-icons-item dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-file-text"></i></a>
+                                              <div class="dropdown-menu dropdown-menu-end">
+                                                  <a href="#" class="dropdown-item"><i class="fa fa-download"></i> Download</a>
+                                                  <a href="#" class="dropdown-item"><i class="fa fa-print"></i> Print</a>
+                                                  <div class="dropdown-divider"></div>
+                                                  <a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
+                                                  <a href="#" class="dropdown-item"><i class="fa fa-remove"></i> Remove</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                      </table>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-2 col-lg-3 col-12">
+          <div class="box box-inverse box-success">
+            <div class="box-body">
+              <div class="flexbox">
+                <h5>Invoice</h5>
+                <div class="dropdown">
+                  <span class="dropdown-toggle no-caret" data-bs-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
+                </div>
+              </div>
+
+              <div class="text-center my-2">
+                <div>{{count}}</div>
+                <span>Total Invoice</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="box box-inverse box-primary">
+            <div class="box-body">
+              <div class="flexbox">
+                <h5>Re Generate Invoice</h5>
+                <div class="dropdown">
+                  <span class="dropdown-toggle no-caret" data-bs-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
+                </div>
+              </div>
+
+              <div class="text-center my-2">
+                <div>1,738</div>
+                <span>Re Generate Invoice</span>
+              </div>
+            </div>				
+          </div>
+
+          <div class="box box-inverse box-warning">
+            <div class="box-body">
+              <div class="flexbox">
+                <h5>Pending Invoice</h5>
+                <div class="dropdown">
+                  <span class="dropdown-toggle no-caret" data-bs-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
+                </div>
+              </div>
+
+              <div class="text-center my-2">
+                <div>964</div>
+                <span>Pending</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}
