@@ -52,51 +52,16 @@
                         <a href="#!" class="ed-micon"><i class="fa fa-bars"></i></a>
                         <div class="ed-mm-inn">
                             <a href="#!" class="ed-mi-close"><i class="fa fa-times"></i></a>
-                            <h4>All Courses</h4>
-                            <ul>
-                                <li><a href="course-details.html">Accounting/Finance</a></li>
-                                <li><a href="course-details.html">civil engineering</a></li>
-                                <li><a href="course-details.html">Art/Design</a></li>
-                                <li><a href="course-details.html">Marine Engineering</a></li>
-                                <li><a href="course-details.html">Business Management</a></li>
-                                <li><a href="course-details.html">Journalism/Writing</a></li>
-                                <li><a href="course-details.html">Physical Education</a></li>
-                                <li><a href="course-details.html">Political Science</a></li>
-                                <li><a href="course-details.html">Sciences</a></li>
-                                <li><a href="course-details.html">Statistics</a></li>
-                                <li><a href="course-details.html">Web Design/Development</a></li>
-                                <li><a href="course-details.html">SEO</a></li>
-                                <li><a href="course-details.html">Google Business</a></li>
-                                <li><a href="course-details.html">Graphics Design</a></li>
-                                <li><a href="course-details.html">Networking Courses</a></li>
-                                <li><a href="course-details.html">Information technology</a></li>
-                            </ul>
                             <h4>User Account</h4>
                             <ul>
-                                <li><a href="#!" data-toggle="modal" data-target="#modal1">Sign In</a></li>
-                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Register</a></li>
+                                <li><a href="#!" data-toggle="modal" data-target="#modal1">Staff</a></li>
+                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Student</a></li>
                             </ul>
-                            <h4>All Pages</h4>
+                            <h4>Other</h4>
                             <ul>
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="admission.html">Admission</a></li>
-                                <li><a href="all-courses.html">All courses</a></li>
-                                <li><a href="course-details.html">Course details</a></li>
-                                <li><a href="awards.html">Awards</a></li>
-                                <li><a href="seminar.html">Seminar</a></li>
-                                <li><a href="events.html">Events</a></li>
-                                <li><a href="event-details.html">Event details</a></li>
-                                <li><a href="event-register.html">Event register</a></li>
-                                <li><a href="contact-us.html">Contact us</a></li>
-                            </ul>
-                            <h4>User Profile</h4>
-                            <ul>
-                                <li><a href="dashboard.html">User profile</a></li>
-                                <li><a href="db-courses.html">Courses</a></li>
-                                <li><a href="db-exams.html">Exams</a></li>
-                                <li><a href="db-profile.html">Prfile</a></li>
-                                <li><a href="db-time-line.html">Time line</a></li>
+                                <li><a href="{% url 'under_dev' %}">Alumni</a></li>
+                                <li><a href="{% url 'under_dev' %}">Calender</a></li>
+                                <li><a href="{% url 'under_dev' %}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -156,83 +121,13 @@
                             <ul>
                                 <li><a href="{% url 'home' %}">Home</a>
                                 </li>
-                                
-                                <li class="admi-menu">
-                                    <a href="#" class="mm-arr">About Us</a>
-                                    <!-- MEGA MENU 1 -->
-                                    <div class="mm-pos">
-                                        <div class="admi-mm m-menu">
-                                            <div class="m-menu-inn">
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="about.html">
-                                                            <img src="{% static 'edu/images/h-about1.jpg' %}" alt="">
-                                                            <span>Academics</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="about.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="admission.html">
-                                                            <img src="{% static 'edu/images/h-adm1.jpg' %}" alt="">
-                                                            <span>Admission</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="admission.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="awards.html">
-                                                            <img src="{% static 'edu/images/h-cam1.jpg' %}" alt="">
-                                                            <span>Hostel</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="awards.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s4">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="seminar.html">
-                                                            <img src="{% static 'edu/images/h-res1.jpg' %}" alt="">
-                                                            <span>About The School</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="seminar.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s4">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="seminar.html">
-                                                            <img src="{% static 'edu/images/h-res1.jpg' %}" alt="">
-                                                            <span>About The Proprietor</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="seminar.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s4">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="seminar.html">
-                                                            <img src="{% static 'edu/images/h-res1.jpg' %}" alt="">
-                                                            <span>About The Teachers</span>
-                                                        </a>
-                                                    </div>
-                                                    <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="seminar.html" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                            
                               
-                                <li><a href="events.html">Events</a>
+                                <li><a href="{% url 'under_dev' %}">Calender</a>
                                 </li>
-                                <li><a href="dashboard.html">Student</a>
+                                <li><a href="{% url 'under_dev' %}">Alumni</a>
                                 </li>
-                                <li><a href="contact-us.html">Contact us</a>
+                                <li><a href="{% url 'under_dev' %}">Contact us</a>
                                 </li>
                             </ul>
                         </div>
@@ -262,11 +157,10 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="all-title quote-title qu-new">
                     <h2>Registration Page</h2>
-                    <p>Fusce purus mauris, blandit vitae purus eget, viverra volutpat nibh. Nam in elementum nisi, a placerat nisi. Quisque ullamcorper magna in odio rhoncus semper.Sed nec ultricies velit. Aliquam non massa id enim ultrices aliquet a ac
-                        tortor.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p class="help-line">Help Line <span>+010 4561 32145</span> </p> <span class="help-arrow pulse"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </div>
-            </div>
+                    <p>To procede for registrations into the e-portal, ensure that you are registered with the school authority.</p>
+                    <p>If you have been registered with the school authority and unable to register, ensure to visit the school authority for clarifications.</p>
+                    <p class="help-line">Help Line <span>+2348100000000</span> </p> <span class="help-arrow pulse"><i class="fa fa-angle-right" aria-hidden="true"></i></span> </div>
+                </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="n-form-com admiss-form">
                     <div class="col s12">

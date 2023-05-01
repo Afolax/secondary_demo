@@ -9,6 +9,7 @@ urlpatterns = [
     path("event/<int:pk>/", event, name="event" ),
     path("article/<int:pk>/", article, name="article" ),
     path("club/<int:pk>/", club, name="club" ),
+    path("under_development/", under_development, name="under_dev" ),
 
     #About Us
     path("academic/<int:pk>/", academic, name="academic" ),

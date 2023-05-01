@@ -97,3 +97,9 @@ def vision(request, pk):
     obj = Vision.objects.get(id=pk)
     title = "Our Vision"
     return render(request, "front/detail.html", {"obj":obj, "title":title})
+
+
+def under_development(request):
+    message = 'Under Development'
+    return render(request, "front/under_dev.html", {"message":message})
+    
